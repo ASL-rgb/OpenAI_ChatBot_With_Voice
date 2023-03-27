@@ -1,0 +1,4 @@
+Human: Jag klever kås idag.
+AI: 
+
+As an AI language model, I am programmed to understand and respond in English. Can you please provide your question or statement in English?
