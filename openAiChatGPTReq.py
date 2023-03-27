@@ -16,7 +16,7 @@ while True:
     # Load your API key from an environment variable or secret management service
     #apiKey = os.environ.get("OPENAI_API_KEY")
 
-    apiKey = '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'
+    apiKey = '**************'
     openai.api_key = apiKey
 
     headers = {"Authorization": f"Bearer {apiKey}",
