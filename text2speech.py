@@ -30,7 +30,6 @@ def speech(content):
     audio_config = texttospeech.AudioConfig(
         audio_encoding=texttospeech.AudioEncoding.MP3,
         pitch=0, speaking_rate=1.5
-
     )
 
     # Perform the text-to-speech request on the text input with the selected
