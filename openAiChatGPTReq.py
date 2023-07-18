@@ -4,6 +4,10 @@ import json
 import record
 import whisperApi
 import text2speech
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 while True:
     record.record()
@@ -13,16 +17,14 @@ while True:
         lines = f.read()
         messages = lines + '\n' + message
         print(message)
-    # Load your API key from an environment variable or secret management service
-    #apiKey = os.environ.get("OPENAI_API_KEY")
 
-    apiKey = '**************'
+    apiKey = os.getenv("API_KEY")
     openai.api_key = apiKey
 
     headers = {"Authorization": f"Bearer {apiKey}",
                "content-type": "application/json"}
 
-    data = {'model': 'gpt-3.5-turbo',
+    data = {'model': 'gpt-4-32k-0613',
            "messages": [{"role": "user", "content": messages}],
 
            'temperature': 0.1

@@ -1,5 +1,6 @@
 
 from google.cloud import texttospeech
+import google.cloud
 from google.oauth2 import service_account
 import pygame
 import time
@@ -12,7 +13,8 @@ def speech(content):
         "/home/asl/.config/Google/gcloud/service_admin.json")
 
     # Pass the credentials to the client constructor
-    client = texttospeech.TextToSpeechClient(credentials=credentials)
+    client = google.cloud.texttospeech.TextToSpeechClient()
+
 
     # Set the text input to be synthesized
     synthesis_input = texttospeech.SynthesisInput(text=content)
@@ -27,8 +29,7 @@ def speech(content):
     # Select the type of audio file you want returned
     audio_config = texttospeech.AudioConfig(
         audio_encoding=texttospeech.AudioEncoding.MP3,
-        pitch=0,
-
+        pitch=0, speaking_rate=1.5
     )
 
     # Perform the text-to-speech request on the text input with the selected
@@ -45,6 +46,6 @@ def speech(content):
 
     pygame.mixer.init()
 
-    sound = pygame.mixer.Sound('outputAI.mp3')
+    sound = pygame.mixer.Sound('./outputAI.mp3')
     sound.play()
     time.sleep(sound.get_length())
